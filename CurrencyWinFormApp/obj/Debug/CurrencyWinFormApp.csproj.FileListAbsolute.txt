@@ -1,0 +1,11 @@
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\obj\Debug\CurrencyWinFormApp.csproj.AssemblyReference.cache
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\obj\Debug\CurrencyWinFormApp.Properties.Resources.resources
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\obj\Debug\CurrencyWinFormApp.csproj.GenerateResource.cache
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\obj\Debug\CurrencyWinFormApp.csproj.CoreCompileInputs.cache
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\bin\Debug\CurrencyWinFormApp.exe
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\bin\Debug\CurrencyWinFormApp.pdb
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\bin\Debug\CurrencyDLL.dll
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\bin\Debug\CurrencyDLL.pdb
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\obj\Debug\Currency.E7817A15.Up2Date
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\obj\Debug\CurrencyWinFormApp.exe
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWinFormApp\obj\Debug\CurrencyWinFormApp.pdb

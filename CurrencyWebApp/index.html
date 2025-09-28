@@ -1,0 +1,211 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quy đổi tiền tệ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+        }
+
+        .container {
+            width: 420px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        label {
+            display: block;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        input, select, button {
+            width: 100%;
+            margin: 8px 0;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+            background: #0078d4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+            button[disabled] {
+                background: #9ec5f8;
+                cursor: default;
+            }
+
+        #result {
+            font-weight: bold;
+            color: #0a7d00;
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        #error {
+            color: #c00;
+            margin-top: 10px;
+        }
+
+        #loading {
+            display: inline-block;
+            margin-left: 8px;
+            color: #333;
+            font-style: italic;
+        }
+
+        .row {
+            display: flex;
+            gap: 8px;
+        }
+
+            .row select {
+                flex: 1;
+            }
+
+        .small {
+            font-size: 14px;
+            color: #666;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Chương trình quy đổi tiền tệ</h2>
+
+        <label for="txtAmount">Số tiền</label>
+        <input type="number" id="txtAmount" placeholder="Nhập số tiền" min="0" step="any" />
+
+        <div class="row">
+            <div>
+                <label for="cmbFrom">Từ</label>
+                <select id="cmbFrom">
+                    <option value="USD">USD</option>
+                    <option value="VND">VND</option>
+                    <option value="EUR">EUR</option>
+                    <option value="JPY">JPY</option>
+                </select>
+            </div>
+            <div>
+                <label for="cmbTo">Đến</label>
+                <select id="cmbTo">
+                    <option value="USD">USD</option>
+                    <option value="VND">VND</option>
+                    <option value="EUR">EUR</option>
+                    <option value="JPY">JPY</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="btnConvert">Quy đổi</button>
+        <span id="loading" style="display:none">Đang xử lý...</span>
+
+        <p id="result"></p>
+        <p id="error"></p>
+
+        <p class="small">API: <code>api.aspx</code></p>
+    </div>
+
+    <script>
+        (function () {
+            var btn = document.getElementById('btnConvert');
+            var amountEl = document.getElementById('txtAmount');
+            var fromEl = document.getElementById('cmbFrom');
+            var toEl = document.getElementById('cmbTo');
+            var resultEl = document.getElementById('result');
+            var errorEl = document.getElementById('error');
+            var loadingEl = document.getElementById('loading');
+
+            function setLoading(isLoading) {
+                loadingEl.style.display = isLoading ? 'inline-block' : 'none';
+                btn.disabled = isLoading;
+            }
+
+            function formatNumber(n) {
+                if (!n) return '';
+                var num = Number(n);
+                if (isNaN(num)) return n;
+                return num.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 6 });
+            }
+
+            function showError(msg) {
+                resultEl.textContent = '';
+                errorEl.textContent = msg;
+            }
+
+            function showResult(value) {
+                errorEl.textContent = '';
+                resultEl.textContent = formatNumber(value);
+            }
+
+            function validate() {
+                var value = amountEl.value;
+                if (!value || isNaN(value)) {
+                    showError('Vui lòng nhập số tiền hợp lệ.');
+                    return false;
+                }
+                if (Number(value) <= 0) {
+                    showError('Số tiền phải lớn hơn 0.');
+                    return false;
+                }
+                if (fromEl.value === toEl.value) {
+                    showError('Vui lòng chọn hai loại tiền khác nhau.');
+                    return false;
+                }
+                return true;
+            }
+
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                resultEl.textContent = '';
+                errorEl.textContent = '';
+
+                if (!validate()) return;
+
+                var amount = amountEl.value;
+                var from = fromEl.value;
+                var to = toEl.value;
+
+                setLoading(true);
+
+                var url = 'api.aspx?amount=' + encodeURIComponent(amount) +
+                    '&from=' + encodeURIComponent(from) +
+                    '&to=' + encodeURIComponent(to);
+
+                fetch(url, { method: 'GET' })
+                    .then(function (res) {
+                        setLoading(false);
+                        if (!res.ok) {
+                            throw new Error('HTTP ' + res.status);
+                        }
+                        return res.json();
+                    })
+                    .then(function (data) {
+                        if (data.error) {
+                            showError(data.error);
+                        } else {
+                            showResult(data.result);
+                        }
+                    })
+                    .catch(function (err) {
+                        setLoading(false);
+                        showError('Lỗi: ' + err.message);
+                    });
+            });
+        })();
+    </script>
+</body>
+</html>
+```

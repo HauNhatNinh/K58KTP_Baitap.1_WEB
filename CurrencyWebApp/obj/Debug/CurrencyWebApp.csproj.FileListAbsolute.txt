@@ -1,0 +1,10 @@
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWebApp\bin\CurrencyWebApp.dll.config
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWebApp\bin\CurrencyWebApp.dll
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWebApp\bin\CurrencyWebApp.pdb
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWebApp\bin\CurrencyDLL.dll
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWebApp\bin\CurrencyDLL.pdb
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWebApp\obj\Debug\CurrencyWebApp.csproj.AssemblyReference.cache
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWebApp\obj\Debug\CurrencyWebApp.csproj.CoreCompileInputs.cache
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWebApp\obj\Debug\Currency.03349A7A.Up2Date
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWebApp\obj\Debug\CurrencyWebApp.dll
+C:\Users\hnnin\source\repos\CurrencySolution\CurrencyWebApp\obj\Debug\CurrencyWebApp.pdb
