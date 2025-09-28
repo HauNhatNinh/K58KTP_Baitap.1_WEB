@@ -70,5 +70,34 @@ _____
 
   - Form1.cs
 <img width="1875" height="888" alt="image" src="https://github.com/user-attachments/assets/c004e41b-4b6e-415d-8fc9-d5c2f3dad74a" />
+
+- Kết quả chạy thử:
+<img width="1850" height="730" alt="image" src="https://github.com/user-attachments/assets/4f7985fb-a700-42d9-afa6-65986b8aacdc" />
+
+#### Bước 5: Tạo Web App – CurrencyWebApp
+- Right click Solution → Add → New Project → ASP.NET Web Application (.NET Framework)
+- Chọn .NET Framework 2.0, Name: CurrencyWebApp
+- Thêm Reference → CurrencyDLL.dll
+- Thêm file index.html (giao diện đẹp, tiếng Việt):
+
+<img width="1906" height="742" alt="image" src="https://github.com/user-attachments/assets/930f689f-6e66-4897-b98b-452075429531" />
+
+- Thêm api.aspx + api.aspx.cs:  
+
+<img width="1876" height="742" alt="image" src="https://github.com/user-attachments/assets/e799df62-d152-46d7-ad4a-b524d68d326f" />
  
- 
+#### Bước 6: Cấu hình Web trên IIS
+- Open IIS Manager → Sites → Add Website
+- Site name: CurrencyWeb
+- Physical path: thư mục WebApp của bạn (CurrencyWebApp)
+- Hostname: doitien.com
+- Mở C:\Windows\System32\drivers\etc\hosts → thêm dòng:
+  *127.0.0.1 doitien.com*
+- Kết quả chạy trên localhost với tên miền là doitien.com:
+
+<img width="1920" height="1030" alt="image" src="https://github.com/user-attachments/assets/28a9a9cd-d183-49d6-9124-3b805f493581" />
+
+#### Bước 7: Kiểm tra và tinh chỉnh
+- Console App → chạy → nhập số tiền + chọn tiền → kết quả đúng
+- Windows Form → chạy → GUI đẹp + kết quả
+- Web App → chạy trên IIS → giao diện đẹp + tiếng Việt + phản hồi nhanh  
